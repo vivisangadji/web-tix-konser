@@ -15,9 +15,10 @@ class CreatePesanansTable extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
-            $table->integer('tiket_id')->unsigned(); 
-            $table->foreign('tiket_id')->references('id')->on('tikets'); 
+            // $table->integer('tiket_id')->unsigned(); 
+            // $table->foreign('tiket_id')->references('id')->on('tikets'); 
             $table->string('id_uniq');
+	    $table->string('nama_tiket');
             $table->string('nama_pemesan');
             $table->string('email');
             $table->integer('no_telp');
