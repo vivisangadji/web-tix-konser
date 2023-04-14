@@ -18,10 +18,10 @@ class CreatePesanansTable extends Migration
             // $table->integer('tiket_id')->unsigned(); 
             // $table->foreign('tiket_id')->references('id')->on('tikets'); 
             $table->string('id_uniq');
-	    $table->string('nama_tiket');
+            $table->string('nama_tiket');
             $table->string('nama_pemesan');
             $table->string('email');
-            $table->integer('no_telp');
+            $table->string('no_telp');
             $table->text('alamat');
             $table->enum('status', ['pending','selesai'])->default('pending');
             $table->timestamps();
