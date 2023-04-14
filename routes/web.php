@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Tiket;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('index');
 // });
-Route::get('/', [App\Http\Controllers\PesanTiketController::class, 'index'])->name('pesan.tiket');
+Route::get('/', function(){
+    $latesEvent = Tiket::orderBy('tanggal_konser', 'desc')->first();
+    return view('index', compact('latesEvent'));
+})->name('pesan.tiket');
+Route::get('/pemesanan-tiket', [App\Http\Controllers\PesanTiketController::class, 'index'])->name('form.pesan.tiket');
 Route::post('/pesan-tiket', [App\Http\Controllers\PesanTiketController::class, 'store'])->name('pesan.tiket.store');
 
 Route::get('/dashboard', function () {
