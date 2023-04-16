@@ -43,7 +43,7 @@ class TiketController extends Controller
         ]);
 
         return redirect()->route('tiket.index')
-                ->with(['success' => 'Input berhasil']);
+                ->with(['success' => 'Data tiket berhasil ditambah']);
     }
 
     public function show($id)
@@ -81,12 +81,12 @@ class TiketController extends Controller
         ]);
 
         return redirect()->route('tiket.index')
-                ->with(['success' => 'Edit berhasil']);
+                ->with(['success' => 'Edit data tiket berhasil']);
     }
 
     public function destroy($id)
     {
         Tiket::where('id', $id)->delete();
-        return redirect()->route('tiket.index')->with(['success' => 'Barang deleted successfully!']);
+        return redirect()->route('tiket.index')->with(['success' => 'Berhasil menghapus tiket!']);
     }
 }

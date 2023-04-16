@@ -42,14 +42,7 @@ class PesanTiketController extends Controller
         ]);
 
         $pdf = PDF::loadView('cetak-ticket', ['tiket' => $data]);
-        return $pdf->download('ticket.pdf');
-        return redirect()->route('/')
-                ->with(['success' => 'Pesanan berhasil']);
+        return $pdf->stream('ticket.pdf');
     }
 
-    // testing
-    // public function generateTicket(){
-    //     $tiket = Tiket::select('nama_tiket')->where('id', 2)->first();
-    //     return view('cetak-ticket', compact('tiket'));
-    // }
 }

@@ -15,7 +15,7 @@
         <link href="{{ asset('assets/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
         <!-- Slider -->               
-        <link rel="stylesheet" href="css/tiny-slider.css"/> 
+        <link rel="stylesheet" href="{{ asset('assets/css/tiny-slider.css') }}"/> 
         <!-- Main Css -->
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" id="theme-opt" />
         <link href="{{ asset('assets/css/colors/default.css') }}" rel="stylesheet" id="color-opt">
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
 
-                            <a href="{{ route('form.pesan.tiket') }}" target="_blank" class="btn btn-success mt-2 me-2"><i class="uil uil-ticket"></i> Buy Tickets</a>
+                            <a href="{{ route('form.pesan.tiket') }}" class="btn btn-success mt-2 me-2"><i class="uil uil-ticket"></i> Buy Tickets</a>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
@@ -107,6 +107,11 @@
 
         <!-- About START -->
         <section class="section border-top">
+            @if(Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{session('success')}}
+                </div>
+            @endif
             <div class="container">
                 <div class="card rounded shadow border-0 bg-light overflow-hidden">
                     <div class="row g-0 align-items-center">
@@ -180,6 +185,7 @@
         
 
         <!-- javascript -->
+        <script src="{{asset('admin/plugins/bower_components/jquery/dist/jquery.min.js')}}"></script>
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
         <!-- Parallax -->
         <script src="{{ asset('assets/js/parallax.js') }}"></script>
